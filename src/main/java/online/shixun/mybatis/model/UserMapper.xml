@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:绑定接口 -->
+<mapper namespace="online.shixun.mybatis.dao.UserDao">
+	<!-- 根据id查询用户信息 -->
+	<select id="findUser" parameterType="_int" resultType="online.shixun.mybatis.model.User">
+		select
+			id,name,age,address
+		from
+			t_user
+		where
+			id=#{id}
+	</select>
+	
+	<!-- 查询所有的用户信息 -->
+	<select id="findUsers" resultType="online.shixun.mybatis.model.User">
+		select
+			id,name,age,address
+		from
+			t_user
+	</select>
+	
+	<!-- 修改用户信息 -->
+	<update id="updateUser" parameterType="online.shixun.mybatis.model.User">
+		update
+			t_user
+		set
+			name=#{name},
+			age=#{age},
+			address=#{address}
+		where
+			id=#{id}
+	</update>
+	
+	<!-- 添加用户 -->
+	<insert id="addUser" parameterType="online.shixun.mybatis.model.User">
+		insert into
+			t_user(name,age,address)
+		values(#{name},#{age},#{address})
+	</insert>
+	
+	<!-- 删除指定id的用户信息 -->
+	<delete id="deleteUser" parameterType="_int">
+		delete from
+			t_user
+		where
+			id=#{id}
+	</delete>
+</mapper>

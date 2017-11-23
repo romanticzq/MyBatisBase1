@@ -1,0 +1,5 @@
+#匹配模式最后跟反斜杠（/）说明要忽略的是目录。
+.classpath
+.project
+.settings/
+target/
